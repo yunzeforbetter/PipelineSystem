@@ -465,10 +465,10 @@ builder.AddAction(async ctx =>
 
 ## 👨‍💻 作者
 
-**Your Name** - *初始创建者* - [您的GitHub](https://github.com/yourusername)
+**云泽** - *初始创建者* - [您的GitHub](https://github.com/yunzeforbetter)
 
 ---
 
 ⭐ 如果这个项目对您有帮助，请给它一个星标！
 
-📧 有问题或建议？欢迎提交 [Issues](https://github.com/yourusername/PipelineSystem/issues)！
+📧 有问题或建议？欢迎提交 [Issues](https://github.com/yunzeforbetter/PipelineSystem/issues)！
