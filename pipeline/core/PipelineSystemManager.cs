@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using Game.Common;
 
 namespace PipelineSystem
 {
@@ -29,13 +28,13 @@ namespace PipelineSystem
         {
             if (string.IsNullOrEmpty(pipelineId))
             {
-                Log.PipelineSystem.Error("Pipeline ID不能为空");
+               Debug.LogError("Pipeline ID不能为空");
                 return false;
             }
 
             if (rootJob == null)
             {
-                Log.PipelineSystem.Error("根任务不能为空");
+               Debug.LogError("根任务不能为空");
                 return false;
             }
 
@@ -48,20 +47,20 @@ namespace PipelineSystem
                 _runningPipelines[pipelineId] = cts;
 
                 // 执行Pipeline
-                Log.PipelineSystem.Debug($"开始执行Pipeline: {pipelineId}");
+               Debug.LogError($"开始执行Pipeline: {pipelineId}");
                 bool result = await rootJob.RunAsync(context).AttachExternalCancellation(cts.Token);
-                Log.PipelineSystem.Debug($"Pipeline执行完成: {pipelineId}, 结果: {result}");
+               Debug.LogError($"Pipeline执行完成: {pipelineId}, 结果: {result}");
                 
                 return result;
             }
             catch (System.OperationCanceledException)
             {
-                Log.PipelineSystem.Debug($"Pipeline被取消: {pipelineId}");
+               Debug.LogError($"Pipeline被取消: {pipelineId}");
                 return false;
             }
             catch (System.Exception ex)
             {
-                Log.PipelineSystem.Error($"Pipeline执行出错: {pipelineId}, 错误: {ex}");
+               Debug.LogError($"Pipeline执行出错: {pipelineId}, 错误: {ex}");
                 return false;
             }
             finally

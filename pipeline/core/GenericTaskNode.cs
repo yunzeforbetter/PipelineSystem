@@ -1,8 +1,7 @@
 using Cysharp.Threading.Tasks;
-
-using Game.Common;
-
 using System;
+
+using UnityEngine;
 
 namespace PipelineSystem
 {
@@ -43,7 +42,7 @@ namespace PipelineSystem
                 }
                 catch (Exception ex)
                 {
-                    Log.PipelineSystem.Error($"执行泛型任务失败: {_name}, 错误: {ex.Message}");
+                    Debug.LogError($"执行泛型任务失败: {_name}, 错误: {ex.Message}");
                     return false;
                 }
             }
@@ -53,7 +52,7 @@ namespace PipelineSystem
             }
             else
             {
-                Log.PipelineSystem.Error($"泛型任务节点需要类型 {typeof(T).Name} 的上下文对象，但提供的是 {context?.GetType().Name ?? "null"}");
+                Debug.LogError($"泛型任务节点需要类型 {typeof(T).Name} 的上下文对象，但提供的是 {context?.GetType().Name ?? "null"}");
                 return false;
             }
         }

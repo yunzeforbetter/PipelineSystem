@@ -1,11 +1,7 @@
 using Cysharp.Threading.Tasks;
-
-using Game.Common;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 
 namespace PipelineSystem
@@ -189,7 +185,7 @@ namespace PipelineSystem
             }
             catch (Exception ex)
             {
-                Log.PipelineSystem.Error($"执行Pipeline出错: {ex}");
+                Debug.LogError($"执行Pipeline出错: {ex}");
                 return false;
             }
         }

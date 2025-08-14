@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Game.Common;
+
+using UnityEngine;
 
 namespace PipelineSystem
 {
@@ -41,7 +41,7 @@ namespace PipelineSystem
         {
             if (string.IsNullOrEmpty(key))
             {
-                Log.PipelineSystem.Error("Pipeline键不能为空");
+                Debug.LogError("Pipeline键不能为空");
                 return null;
             }
             
@@ -148,7 +148,7 @@ namespace PipelineSystem
         {
             if (!_priorityJobs.TryGetValue(key, out var priorityList))
             {
-                Log.PipelineSystem.Warning($"没有找到键为 {key} 的优先级任务");
+                Debug.LogWarning($"没有找到键为 {key} 的优先级任务");
                 return null;
             }
             
@@ -179,7 +179,7 @@ namespace PipelineSystem
             var pipeline = GetPipeline(key);
             if (pipeline == null)
             {
-                Log.PipelineSystem.Error($"未找到键为 {key} 的Pipeline");
+                Debug.LogError($"未找到键为 {key} 的Pipeline");
                 return false;
             }
             
@@ -199,7 +199,7 @@ namespace PipelineSystem
             var pipeline = BuildPriorityPipeline(key);
             if (pipeline == null)
             {
-                Log.PipelineSystem.Error($"未找到键为 {key} 的Pipeline");
+                Debug.LogError($"未找到键为 {key} 的Pipeline");
                 return false;
             }
             
